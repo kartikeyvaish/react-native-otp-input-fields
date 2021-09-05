@@ -1,6 +1,6 @@
 {
   "name": "react-native-otp-input-fields",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React Native Component for OTP Input Fields.",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kartikeyvaish/OTP-Input-Fields.git"
+    "url": "git+https://github.com/kartikeyvaish/react-native-otp-input-fields.git"
   },
   "keywords": [
     "OTP Input",
@@ -29,7 +29,7 @@
   "author": "Kartikey Vaish",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kartikeyvaish/OTP-Input-Fields"
+    "url": "https://github.com/kartikeyvaish/react-native-otp-input-fields"
   },
-  "homepage": "https://github.com/kartikeyvaish/OTP-Input-Fields#readme"
+  "homepage": "https://github.com/kartikeyvaish/react-native-otp-input-fields#readme"
 }

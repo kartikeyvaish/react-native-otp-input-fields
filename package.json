@@ -1,6 +1,6 @@
 {
   "name": "react-native-otp-input-fields",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Native Component for OTP Input Fields.",
   "main": "index.js",
   "scripts": {

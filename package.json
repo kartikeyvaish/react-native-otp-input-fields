@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-    "react": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz"
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-native": ">=0.60.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

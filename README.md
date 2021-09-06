@@ -1,4 +1,6 @@
-# OTP Input
+# react-native-otp-input-fields
+
+This is a component for OTP Input fields. It can read clipboard copied OTPs and autofill for you.
 
 ## Installation
 

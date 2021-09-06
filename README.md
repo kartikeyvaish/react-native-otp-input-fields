@@ -1,5 +1,11 @@
 # OTP Input
 
+## Installation
+
+```javascript
+npm i react-native-otp-input-fields
+```
+
 ## Basic Usage
 
 ```javascript

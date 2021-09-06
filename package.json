@@ -1,6 +1,6 @@
 {
   "name": "react-native-otp-input-fields",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "React Native Component for OTP Input Fields.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
   },
   "peerDependencies": {
     "react": "^16.13.1",
-    "react-native": ">=0.60.0"
+    "react-native": ">=0.60.0",
+    "expo-clipboard": "~1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",

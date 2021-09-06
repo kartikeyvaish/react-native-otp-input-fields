@@ -1,15 +1,16 @@
 import React, { useRef } from "react";
 import {
-  View,
-  StyleSheet,
-  TextStyle,
   Dimensions,
-  Text,
-  ViewStyle,
-  TextInput,
   NativeSyntheticEvent,
+  StyleSheet,
+  Text,
+  TextInput,
   TextInputKeyPressEventData,
+  TextStyle,
+  View,
+  ViewStyle,
 } from "react-native";
+import * as Clipboard from "expo-clipboard";
 
 const ScreenWidth = Dimensions.get("screen").width;
 
@@ -58,6 +59,28 @@ function OTPInput({
   const TextInputRefs = useRef(new Array(length).fill({}));
   const [Focused, SetFocused] = React.useState(0);
 
+  // UseEffect to handle code copy and app State change
+  React.useEffect(() => {
+    const subscription = Clipboard.addClipboardListener(CheckClipBoard);
+
+    return () => Clipboard.removeClipboardListener(subscription);
+  }, []);
+
+  // Function to check clipboard OTP
+  const CheckClipBoard = async () => {
+    try {
+      const text = await Clipboard.getStringAsync();
+      let result = /^[0-9\b]+$/.test(text);
+      if (result) {
+        if (text.length === length) {
+          SetFocused(text.length - 1);
+          onChangeText(text);
+        }
+      }
+    } catch (error) {}
+  };
+
+  // Function to handle text input change
   const onKeyPress = (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => {
     try {
       if (e.nativeEvent.key === "Backspace") {
@@ -75,6 +98,7 @@ function OTPInput({
     } catch (error) {}
   };
 
+  // Function to handle text input change
   const onChange = (e: any) => {
     try {
       if (e.nativeEvent.text) {
@@ -88,7 +112,7 @@ function OTPInput({
     } catch (error) {}
   };
 
-  const hederTitleStyleObj = {
+  const headerTitleStyleObj = {
     ...styles.headerTitleStyle,
     color: headerTitleColor,
     ...headerTitleStyle,
@@ -99,7 +123,7 @@ function OTPInput({
       {HeaderComponent ? HeaderComponent : null}
 
       {headerTitle ? (
-        <Text style={hederTitleStyleObj}>{headerTitle}</Text>
+        <Text style={headerTitleStyleObj}>{headerTitle}</Text>
       ) : null}
 
       <View style={[styles.OTPContainerStyle, OTPContainerStyle]}>

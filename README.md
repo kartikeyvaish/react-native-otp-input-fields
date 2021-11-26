@@ -1,6 +1,10 @@
 # react-native-otp-input-fields
 
-This is a component for OTP Input fields. It can read clipboard copied OTPs and autofill for you.
+This is a component for OTP Input fields.
+
+- [Installation](https://github.com/kartikeyvaish/react-native-otp-input-fields#installation)
+- [Usage](https://github.com/kartikeyvaish/react-native-otp-input-fields#usage)
+- [Docs](https://github.com/kartikeyvaish/react-native-otp-input-fields#parameters)
 
 ## Installation
 
@@ -8,10 +12,48 @@ This is a component for OTP Input fields. It can read clipboard copied OTPs and 
 npm i react-native-otp-input-fields
 ```
 
-## Basic Usage
+NOTE: This package uses `react-native-reanimated` under the hood for input field animation. If you are using `React Navigation` for navigation purpose in your app, then you don't have to do anything. Otherwise, Follow the installation process of [React Native Reanimated]().
+
+## Usage
+
+Below are some examples to use this package
+
+### Basic Usage
 
 ```javascript
-import { OTPInput } from 'react-native-otp-input-fields';
+import OTPInput from "react-native-otp-input-fields";
+
+const [OTP, SetOTP] = useState("");
+// Maintain a state variable
+
+// Use it like this
+<OTPInput onChangeText={SetOTP} value={OTP} />;
+```
+
+<img src="./example/assets/images/Basic.jpg" width="40%" >
+
+---
+
+### Password Secure Usage
+
+```javascript
+import OTPInput from "react-native-otp-input-fields";
+
+const [OTP, SetOTP] = useState("");
+// Maintain a state variable
+
+// Use it like this
+<OTPInput onChangeText={SetOTP} value={OTP} secureTextEntry={true} />;
+```
+
+<img src="./example/assets/images/Secure.jpg" width="40%" >
+
+---
+
+### Change Colors and other styles
+
+```javascript
+import OTPInput from "react-native-otp-input-fields";
 
 const [OTP, SetOTP] = useState("");
 // Maintain a state variable
@@ -20,31 +62,74 @@ const [OTP, SetOTP] = useState("");
 <OTPInput
   onChangeText={SetOTP}
   value={OTP}
-  ...
-
-/>
+  borderColor="orange"
+  boxBackgroundColor="dodgerblue"
+  cursorColor="orange"
+  digitColor="white"
+/>;
 ```
 
-![OTP Input Demo GIF](https://i.imgur.com/ZKOv0Pa.gif)
+<img src="./example/assets/images/Color.jpg" width="40%" >
+
+---
+
+### Apply Elevation and Border Radius etc.
+
+```javascript
+import OTPInput from "react-native-otp-input-fields";
+
+const [OTP, SetOTP] = useState("");
+// Maintain a state variable
+
+// Use it like this
+<OTPInput
+  onChangeText={SetOTP}
+  value={OTP}
+  boxBorderRadius={50}
+  onlyBorderBottom={false}
+  boxElevation={10}
+/>;
+```
+
+<img src="./example/assets/images/Elevation.jpg" width="40%" >
+
+---
 
 ## Parameters
 
-| Parameter           | required | Default | Description                                                               |
-| ------------------- | -------- | ------- | ------------------------------------------------------------------------- |
-| value               | YES      |         | Maintain a state in parent component and use it as a controlled input     |
-| onChangeText        | YES      |         | the onChangeText function to update the state in parent component         |
-| length              | NO       | 6       | Number of digits in the OTP                                               |
-| autoFocus           | NO       | false   | Whether to autofocus the first field                                      |
-| headerTitle         | NO       |         | The header Title above the OTP fields                                     |
-| headerTitleStyle    | NO       | {}      | header title styles                                                       |
-| headerTitleColor    | NO       | black   | header title color                                                        |
-| activeBorderColor   | NO       | #03DAC6 | Color of the border bottom line if the input field is focused             |
-| disabledBorderColor | NO       | grey    | Color of the blurred input fields. i.e, the fields which are out of focus |
-| activeBorderWidth   | NO       | 3       | Border Width of focused field                                             |
-| disabledBorderWidth | NO       | 1       | Border Width of fields which are out pof focus                            |
-| children            | NO       | null    | children for the component if any                                         |
-| HeaderComponent     | NO       | null    | component to show above the OTP component                                 |
-| FooterComponent     | NO       | null    | component to show below the OTP component                                 |
-| containerStyle      | NO       | {}      | styles for the container that holds the whole component                   |
-| OTPContainerStyle   | NO       | {}      | styles for the OTP container                                              |
-| TextInputStyle      | NO       | {}      | styles for the Input fields                                               |
+### Basic Parameters
+
+| Parameter         | required | Default     | Description                                                                              |
+| ----------------- | -------- | ----------- | ---------------------------------------------------------------------------------------- |
+| value             | YES      |             | Maintain a state in parent component and use it as a controlled input                    |
+| onChangeText      | YES      |             | the onChangeText function to update the state in parent component                        |
+| count             | NO       | 6           | Number of digits in the OTP                                                              |
+| autoFocus         | NO       | false       | Whether to autofocus the first field                                                     |
+| removeOnBackspace | NO       | true        | Whether to clear the previous input while pressing the backspace button on a input field |
+| onSubmitEditing   | NO       |             | function to execute when user presses the done button on keyboard                        |
+| containerWidth    | NO       | screenWidth | Width of the Input Field Container                                                       |
+| boxHeight         | NO       | 60          | Height of each input field                                                               |
+| margin            | NO       | 5           | margin between each input field                                                          |
+
+### Customization
+
+| Parameter          | required | Default | Description                                                        |
+| ------------------ | -------- | ------- | ------------------------------------------------------------------ |
+| secureTextEntry    | NO       | false   | Mask the text input as password field or not                       |
+| allowDigitsOnly    | NO       | false   | Allow only digits to be entered in the text input                  |
+| digitFontSize      | NO       | 25      | font size of the text inside input field                           |
+| animateDuration    | NO       | 300ms   | Duration for the animation to complete when input field is focused |
+| cursorColor        | NO       | black   | color of the blinking cursor                                       |
+| digitColor         | NO       | black   | color of the digit inside the field                                |
+| onlyBorderBottom   | NO       | true    | whether to show border around whole box or just the border bottom  |
+| keyboardType       | NO       | true    | type of Keyboard from `KeyboardTypeOptions` in react-native        |
+| borderBottomWidth  | NO       | 3       | width for the border bottom of box                                 |
+| borderColor        | NO       | `black` | color for the border of box                                        |
+| boxElevation       | NO       | `6`     | elevation for the input field box                                  |
+| maxLength          | NO       | 1       | Max length of each input field                                     |
+| inputStyle         | NO       |         | styles for the `TextInput` component                               |
+| boxHeight          | NO       | 60      | height of each input field                                         |
+| boxBorderRadius    | NO       | 0       | border Radius of input field                                       |
+| boxContainerStyle  | NO       |         | styles for the input containers                                    |
+| containerStyle     | NO       |         | styles for the whole input box container (outer)                   |
+| boxBackgroundColor | NO       | `white` | backround Color of the input fields                                |

@@ -1,21 +1,36 @@
 {
   "name": "react-native-otp-input-fields",
-  "version": "1.0.4",
+  "author": "Kartikey Vaish",
+  "version": "1.0.5",
   "description": "React Native Component for OTP Input Fields.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p ."
+  },
+  "dependencies": {
+    "react-native-reanimated": "~2.2.0"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "react-native": ">=0.60.0",
-    "expo-clipboard": "~1.1.0"
+    "react": "*",
+    "react-native": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@types/react": "~16.9.35",
-    "@types/react-native": "~0.63.2",
-    "typescript": "~4.0.0"
+    "@babel/core": "^7.12.9",
+    "@types/react": "~17.0.21",
+    "@types/react-native": "~0.64.12",
+    "typescript": "~4.3.5"
+  },
+  "contributors": [
+    {
+      "name": "Kartikey Vaish",
+      "url": "https://github.com/kartikeyvaish"
+    }
+  ],
+  "homepage": "https://github.com/kartikeyvaish/react-native-otp-input-fields#readme",
+  "bugs": {
+    "url": "https://github.com/kartikeyvaish/react-native-otp-input-fields"
   },
   "repository": {
     "type": "git",
@@ -26,11 +41,5 @@
     "otp",
     "code",
     "fields"
-  ],
-  "author": "Kartikey Vaish",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kartikeyvaish/react-native-otp-input-fields"
-  },
-  "homepage": "https://github.com/kartikeyvaish/react-native-otp-input-fields#readme"
+  ]
 }

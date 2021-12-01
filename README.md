@@ -12,8 +12,7 @@ This is a component for OTP Input fields.
 npm i react-native-otp-input-fields
 ```
 
-NOTE: This package uses `react-native-reanimated` under the hood for input field animation. If you are using `React Navigation` for navigation purpose in your app, then you don't have to do anything. Otherwise, Follow the installation process of [React Native Reanimated]().
-
+NOTE: This package uses `react-native-reanimated` under the hood for animation. Please Follow the installation process of [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation)
 ## Usage
 
 Below are some examples to use this package
